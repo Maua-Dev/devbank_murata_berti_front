@@ -7,15 +7,25 @@ function Homescreen() {
   const pigAnimation = useRef<LottieRefCurrentProps>(null)
   return (
     <>
-      <h1>Bem Vindo ao MUVI Bank</h1>
-      <Lottie lottieRef={pigAnimation} animationData={animationData} />
-      <br />
-      <form>
-        <div className="form-control">
-          <input type="text" placeholder="Insira o URL da sua API aqui" />
+    <div className='container'>
+        <div>
+            <h1>Bem Vindo ao MUVI Bank</h1>
+            <form>
+                <div className='form'>
+                    <input type="text" placeholder="Insira o URL da sua API aqui" />
+                </div>
+                <button type="submit">Enviar</button>
+            </form>
         </div>
-        <button type="submit">Submit</button>
-      </form>
+        <div className='animation'>
+                <Lottie
+                    lottieRef={pigAnimation}
+                    animationData={animationData}
+                    loop
+                    autoplay
+                />
+        </div>
+    </div>
     </>
   )
 }
