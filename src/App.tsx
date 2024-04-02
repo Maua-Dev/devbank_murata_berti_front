@@ -1,19 +1,8 @@
-import { useState } from 'react'
 import './App.css'
+import Homescreen from './components/Homescreen.tsx'
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <h1>🚀 Vite React Template 🚀</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-      </div>
-    </>
-  )
+  return <Homescreen />
 }
 
 export default App

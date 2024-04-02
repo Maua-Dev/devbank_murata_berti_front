@@ -1,4 +1,31 @@
 #root {
   margin: 0 auto;
   text-align: center;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  /* Colors */
+    --color-primary: #eadfb4;
+    --color-secondary: #9bb0c1;
+    --color-tertiary: #51829b;
+    --color-quaternary: #f6995c;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    background: var(--color-secondary);
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-size: 18px;
 }
