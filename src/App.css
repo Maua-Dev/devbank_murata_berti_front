@@ -1,80 +1,35 @@
+@font-face {
+  font-family: 'Heavitas';
+  src: url('../src/assets/fonts/Heavitas.ttf') format('truetype');
+}
+:root {
+  /* Colors */
+  --color-primary: #eadfb4;
+  --color-secondary: #9bb0c1;
+  --color-tertiary: #51829b;
+  --color-quaternary: #f6995c;
+}
+
 #root {
   margin: 0 auto;
-  text-align: center;
+  width: auto;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-:root {
-  /* Colors */
-    --color-primary: #eadfb4;
-    --color-secondary: #9bb0c1;
-    --color-tertiary: #51829b;
-    --color-quaternary: #f6995c;
-}
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    background: var(--color-primary);
-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-    font-size: 18px;
+  background: var(--color-primary);
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 30px;
 }
 
-input {
-  width: 260px;
-  font-size: 1rem;
-  padding: 8px 24px;
-  border: none;
-  gap: 10%;
-  background-color: var(--color-quaternary);
-  color: white;
-  border-radius: 12px;
-}
-
-button {
-  font-size: 1rem;
-  padding: 8px 24px;
-  border: none;
-  gap: 10%;
-  background-color: var(--color-tertiary);
-  color: white;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.5 ease-in-out;
-}
-
-.container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 200px;
-}
-
-.animation {
-  width: 40%;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.form {
-  margin-bottom: 10px;
+span {
+  font-family: 'Heavitas';
+  color: var(--color-tertiary);
+  font-size: 75px;
 }
 
 h1 {
-  margin-bottom: 20px;
-}
-
-button:hover{
-  background-color: var(--color-secondary);
-  transform: scale(1.1);
+  margin-bottom: 10px;
 }
