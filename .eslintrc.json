@@ -29,6 +29,8 @@
             {"allowConstantExport": true}
         ],
         "prettier/prettier": "warn",
-        "no-unused-vars": "warn"
+        "no-unused-vars": "warn",
+        "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
+        "react/react-in-jsx-scope": "off"
     }
 }

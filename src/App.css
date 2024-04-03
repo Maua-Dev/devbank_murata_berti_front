@@ -1,4 +1,35 @@
+@font-face {
+  font-family: 'Heavitas';
+  src: url('../src/assets/fonts/Heavitas.ttf') format('truetype');
+}
+:root {
+  /* Colors */
+  --color-primary: #eadfb4;
+  --color-secondary: #9bb0c1;
+  --color-tertiary: #51829b;
+  --color-quaternary: #f6995c;
+}
+
 #root {
   margin: 0 auto;
-  text-align: center;
+  width: auto;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--color-primary);
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 30px;
+}
+
+span {
+  font-family: 'Heavitas';
+  color: var(--color-tertiary);
+  font-size: 75px;
+}
+
+h1 {
+  margin-bottom: 10px;
 }
