@@ -1,0 +1,94 @@
+body {
+    overflow: hidden;
+}
+
+.circle {
+    width: 100px;
+        height: 100px;
+        background-color: #f6995c; 
+        border-radius: 50%;
+}
+
+.name{
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+    justify-content: center;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    justify-content: center;
+    gap: 8px;
+}
+
+.fonte {
+    font-family: 'Peachy Mochi';
+    font-size: 92px;
+    font-weight: bold;
+    margin: 0;
+    justify-content: center;
+    padding-left: 30px;
+}
+
+button {
+    width: 400px;
+    height: 50px;
+    font-size: 1rem;
+    padding: 8px 24px;
+    border: none;
+    gap: 10%;
+    background-color: #51829b;
+    color: white;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    margin-bottom: 100px;
+  }
+  
+  button:hover {
+    transform: scale(1.1);
+  }
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    height: 200px;
+    width: 400px;
+    background-color: #51829b;
+    align-items: center;
+    padding: 4px 32px;
+    border-radius: 24px;
+    /* https://www.cssmatic.com/ */
+    -webkit-box-shadow: 4px 4px 12px 2px rgba(0,0,0,0.32);
+    -moz-box-shadow: 4px 4px 12px 2px rgba(0,0,0,0.32);
+    box-shadow: 4px 4px 12px 2px rgba(0,0,0,0.32);
+    transition: all 0.5s ease-in;
+    cursor: pointer;
+  }
+
+  .name{
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+    justify-content: center;
+    color: white;
+}
+
+.button-container {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+@font-face {
+    font-family: 'Peachy Mochi';
+    src: url('../src/assets/fonts/PeachyMochi.ttf') format('truetype');
+  }
