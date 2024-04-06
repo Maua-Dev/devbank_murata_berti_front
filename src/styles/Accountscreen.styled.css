@@ -1,11 +1,20 @@
 body {
     overflow: hidden;
+    background-color: var(--color-secondary)
 }
+
+:root {
+    /* Colors */
+    --color-primary: #eadfb4;
+    --color-secondary: #9bb0c1;
+    --color-tertiary: #51829b;
+    --color-quaternary: #f6995c;
+  }
 
 .circle {
     width: 100px;
         height: 100px;
-        background-color: #f6995c; 
+        background-color: var(--color-tertiary); 
         border-radius: 50%;
 }
 
@@ -25,8 +34,9 @@ body {
 }
 
 .fonte {
-    font-family: 'Peachy Mochi';
-    font-size: 92px;
+    color: var(--color-tertiary);
+    font-family: 'Heavitas';
+    font-size: 80px;
     font-weight: bold;
     margin: 0;
     justify-content: center;
@@ -40,7 +50,7 @@ button {
     padding: 8px 24px;
     border: none;
     gap: 10%;
-    background-color: #51829b;
+    background-color: var(--color-quaternary);
     color: white;
     border-radius: 12px;
     cursor: pointer;
@@ -58,7 +68,7 @@ button {
     gap: 16px;
     height: 200px;
     width: 400px;
-    background-color: #51829b;
+    background-color: var(--color-quaternary);
     align-items: center;
     padding: 4px 32px;
     border-radius: 24px;
@@ -89,6 +99,6 @@ button {
 }
 
 @font-face {
-    font-family: 'Peachy Mochi';
-    src: url('../src/assets/fonts/PeachyMochi.ttf') format('truetype');
+    font-family: 'Heavitas';
+    src: url('../src/assets/fonts/Heavitas.ttf') format('truetype');
   }
