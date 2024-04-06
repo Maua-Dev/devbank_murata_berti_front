@@ -1,8 +1,16 @@
+:root {
+  --toastify-font-family: 'Inter', sans-serif;
+  --toastify-font-size: 10px
+}
+
+
+
 body {
   display: flex;
   align-items: center;
   text-align: center;
   justify-content: center;
+  overflow: hidden;
 }
 input {
   background: #ebfffc;
