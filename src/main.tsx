@@ -7,14 +7,14 @@ import {
   RouterProvider
 } from 'react-router-dom'
 import App from './App.tsx'
-import Accountscreen from './components/Accountscreen.tsx'
+import AccountScreen from './screens/AccountScreen.tsx'
 import Homescreen from './screens/Homescreen.tsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
-      <Route index path="/" element={<Homescreen />} />
-      <Route path="/" element={<Accountscreen />} />
+      <Route index path="/home" element={<Homescreen />} />
+      <Route path="/" element={<AccountScreen />} />
     </Route>
   )
 )
