@@ -8,28 +8,27 @@
   --color-secondary: #9bb0c1;
   --color-tertiary: #51829b;
   --color-quaternary: #f6995c;
+  --toastify-font-family: 'Inter', sans-serif;
+  --toastify-font-size: 10px;
 }
 
-#root {
-  margin: 0 auto;
-  width: auto;
-
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   background: var(--color-primary);
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 30px;
+  width: auto;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 span {
   font-family: 'Heavitas';
   color: var(--color-tertiary);
   font-size: 75px;
-}
-
-h1 {
-  margin-bottom: 10px;
 }
