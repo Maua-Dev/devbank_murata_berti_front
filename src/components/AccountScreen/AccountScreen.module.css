@@ -7,13 +7,11 @@
 }
 
 .container {
-  max-width: 1440px;
-  height: 100vh;
-  margin: 20px auto;
-  padding: 20px;
   display: flex;
+  height: 100vh;
+  padding: 24px 0 24px 0;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 .container h1 {
@@ -34,43 +32,39 @@
 }
 
 .container_grid {
-  max-width: 720px;
-  margin: 0px auto;
-  padding: 50px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, 60px);
-  gap: 30px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 16px;
+  grid-row-gap: 16px;
+  height: 80%;
+  width: 50%;
 }
 
 .card {
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 30px;
-  margin-bottom: 10px;
 }
 
-.card:nth-of-type(1) {
-  grid-column: 1 / 5;
-  grid-row: 1 / 11;
-}
-
-.card:nth-of-type(3) {
-  grid-column: 1 / 5;
-  grid-row: 10 / 28;
-}
-.card:nth-of-type(2) {
-  grid-column: 5 / 12;
-  grid-row: 1 / 28;
-}
-
-.cardBgGreen {
-  background-color: var(--color-quaternary);
-}
-
-.cardBgBlue {
+.withdraw {
+  grid-column: 2 / span 1;
+  grid-row: 1 / span 3;
   background-color: var(--color-secondary);
 }
 
-.cardBgRed {
+.deposit {
+  grid-row: 2 / span 2;
   background-color: var(--color-tertiary);
+}
+
+.transactions {
+  grid-column: 1 / span 1;
+  grid-row: 1 / span 1;
+  background-color: var(--color-quaternary);
+}
+
+.api {
+  font-size: 24px;
+  color: red;
 }

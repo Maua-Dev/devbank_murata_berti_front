@@ -1,8 +1,9 @@
 import { create } from 'zustand'
 
-type AuthStore = {
+interface AuthStore {
   apiUrl: string
   isValidApi: boolean
+  // eslint-disable-next-line no-unused-vars
   setApiUrl: (url: string) => void
   authApi: () => boolean
 }

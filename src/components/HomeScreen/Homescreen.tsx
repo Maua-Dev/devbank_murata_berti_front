@@ -1,25 +1,36 @@
 import Lottie, { LottieRefCurrentProps } from 'lottie-react'
-import { useRef } from 'react'
+import { FormEvent, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { toast } from 'react-toastify'
+import { ToastContainer, Flip, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+
 import animationData from '../../assets/pigAnimation.json'
-import useAuthStore from '../../store.ts'
+// import useAuthStore from '../../store.ts'
 import classes from './HomeScreen.module.css'
 
 function Homescreen() {
+  const [api, setApi] = useState<string>('')
   const pigAnimation = useRef<LottieRefCurrentProps>(null)
-  const { apiUrl, setApiUrl, authApi } = useAuthStore()
+  // const { apiUrl, setApiUrl, authApi } = useAuthStore()
 
   const navigate = useNavigate()
 
-  const submitHandler = async (e: { preventDefault: () => void }) => {
+  const submitHandler = async (e: FormEvent) => {
     e.preventDefault()
-    const isValid: boolean = await authApi()
-    useAuthStore.setState({ isValidApi: isValid })
-    if (authApi()) navigate('/')
-    else {
+    // const isValid: boolean = await authApi()
+    // useAuthStore.setState({ isValidApi: isValid })
+    // if (authApi()) navigate('/')
+    // else {
+    //   toast.error('URL inválida, tente novamente')
+    // }
+
+    const regex = /^(http|https):\/\/[^ "]+$/
+    if (!regex.test(api)) {
       toast.error('URL inválida, tente novamente')
+      return
     }
+    localStorage.setItem('apiUrl', api)
+    navigate('/')
   }
 
   return (
@@ -32,8 +43,7 @@ function Homescreen() {
           <div className={classes.form}>
             <input
               type="text"
-              value={apiUrl}
-              onChange={(e) => setApiUrl(e.target.value)}
+              onChange={(e) => setApi(e.target.value)}
               placeholder="Insira o URL da sua API aqui"
             />
           </div>
@@ -46,6 +56,20 @@ function Homescreen() {
         animationData={animationData}
         loop
         style={{ width: 500, height: 500 }} // Increase the width and height values
+      />
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        limit={3}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        transition={Flip}
+        draggable={false}
+        pauseOnHover={false}
+        theme="colored"
       />
     </div>
   )
