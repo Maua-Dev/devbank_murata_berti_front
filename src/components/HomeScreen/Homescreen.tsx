@@ -2,9 +2,9 @@ import Lottie, { LottieRefCurrentProps } from 'lottie-react'
 import { useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
-import animationData from '../assets/pigAnimation.json'
-import useAuthStore from '../store.ts'
-import '../styles/Homescreen.styled.css'
+import animationData from '../../assets/pigAnimation.json'
+import useAuthStore from '../../store.ts'
+import classes from './HomeScreen.module.css'
 
 function Homescreen() {
   const pigAnimation = useRef<LottieRefCurrentProps>(null)
@@ -23,13 +23,13 @@ function Homescreen() {
   }
 
   return (
-    <div className="container">
+    <div className={classes.container}>
       <div>
         <h1>
           Bem Vindo ao <span>MUVI</span> Bank
         </h1>
         <form onSubmit={submitHandler}>
-          <div className="form">
+          <div className={classes.form}>
             <input
               type="text"
               value={apiUrl}
@@ -40,7 +40,7 @@ function Homescreen() {
           <button type="submit">Enviar</button>
         </form>
       </div>
-      <div className="animation" />
+      <div className={classes.animation} />
       <Lottie
         lottieRef={pigAnimation}
         animationData={animationData}

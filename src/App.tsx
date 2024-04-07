@@ -1,17 +1,17 @@
-import { useEffect } from 'react'
-import { Outlet, useNavigate } from 'react-router-dom'
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import { Flip, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import './App.css'
+import Accountscreen from './components/AccountScreen/AccountScreen'
+import Homescreen from './components/HomeScreen/Homescreen'
 
 function App() {
-  const navigate = useNavigate()
-
-  useEffect(() => {
-    navigate('/home')
-  }, [navigate])
   return (
-    <>
+    <Router>
+      <Routes>
+        <Route path="/home" element={<Homescreen />} />
+        <Route path="/" element={<Accountscreen />} />
+      </Routes>
       <ToastContainer
         position="top-right"
         autoClose={2000}
@@ -26,8 +26,7 @@ function App() {
         pauseOnHover={false}
         theme="colored"
       />
-      <Outlet />
-    </>
+    </Router>
   )
 }
 
