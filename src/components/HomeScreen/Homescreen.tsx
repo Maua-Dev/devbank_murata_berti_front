@@ -1,5 +1,5 @@
 import Lottie, { LottieRefCurrentProps } from 'lottie-react'
-import { FormEvent, useRef, useState } from 'react'
+import { FormEvent, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Flip, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
@@ -9,7 +9,6 @@ import useAuthStore from '../../store'
 import classes from './HomeScreen.module.css'
 
 function Homescreen() {
-  const [api, setApi] = useState<string>('')
   const pigAnimation = useRef<LottieRefCurrentProps>(null)
   const { setApiUrl, authApi } = useAuthStore()
 
@@ -17,8 +16,7 @@ function Homescreen() {
 
   const submitHandler = (e: FormEvent) => {
     e.preventDefault()
-    authApi()
-    if (localStorage.getItem('apiUrl')) {
+    if (authApi()) {
       navigate('/')
     }
   }

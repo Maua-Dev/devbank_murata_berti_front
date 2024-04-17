@@ -6,7 +6,7 @@ interface AuthStore {
   apiUrl: string
   // eslint-disable-next-line no-unused-vars
   setApiUrl: (url: string) => void
-  authApi: () => void
+  authApi: () => boolean
 }
 
 const useAuthStore = create<AuthStore>()(
@@ -19,9 +19,8 @@ const useAuthStore = create<AuthStore>()(
         const regEx = /^(http|https):\/\/[^ "]+$/
         if (!regEx.test(apiUrl)) {
           toast.error('URL inválida, tente novamente')
-          return
-        }
-        localStorage.setItem('apiUrl', apiUrl)
+          return false
+        } else return true
       }
     }),
     {
