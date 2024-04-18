@@ -1,42 +1,35 @@
 {
-    "env": {
-        "browser": true,
-        "commonjs": true,
-        "es2021": true
-    },
-    "extends": [
-        "eslint:recommended",
-        "plugin:@typescript-eslint/recommended",
-        "plugin:react/recommended",
-        "plugin:react-hooks/recommended",
-        "airbnb",
-        "prettier"
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es2021": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:@prettier/recommended"
+  ],
+  "ignorePatterns": ["dist", ".eslintrc.json"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  },
+  "plugins": ["@typescript-eslint", "react", "react-refresh", "prettier"],
+  "rules": {
+    "react-refresh/only-export-components": [
+      "warn",
+      { "allowConstantExport": true }
     ],
-    "ignorePatterns": ["dist", ".eslintrc.json"],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-        "ecmaVersion": "latest"
-    },
-    "plugins": [
-        "@typescript-eslint",
-        "react",
-        "react-refresh",
-        "prettier"
+    "prettier/prettier": "warn",
+    "no-unused-vars": "warn",
+    "react/jsx-filename-extension": [
+      2,
+      { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
     ],
-    "rules": {
-        "react-refresh/only-export-components": [
-            "warn",
-            {"allowConstantExport": true}
-        ],
-        "prettier/prettier": "warn",
-        "no-unused-vars": "warn",
-        "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
-        "react/react-in-jsx-scope": "off",
-        "import/extensions": [
-            "warn",
-            "never",
-            {"json": "ignorePackages" }
-        ],
-        "import/no-unresolved": "off"
-    }
+    "react/react-in-jsx-scope": "off",
+    "import/extensions": ["warn", "never", { "json": "ignorePackages" }],
+    "import/no-unresolved": "off"
+  }
 }

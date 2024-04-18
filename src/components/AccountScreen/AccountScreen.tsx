@@ -1,23 +1,24 @@
-import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import useAuthStore from '../../store'
 import classes from './AccountScreen.module.css'
 
 function AccountScreen() {
   const navigate = useNavigate()
-  const api = localStorage.getItem('apiUrl')
+  const { apiUrl } = useAuthStore()
 
   useEffect(() => {
     const regex = /^(http|https):\/\/[^ "]+$/
-    if (!api || !regex.test(api)) {
+    if (!apiUrl || !regex.test(apiUrl)) {
       navigate('/home')
     }
-  }, [api, navigate])
+  }, [apiUrl, navigate])
 
   return (
     <div className={classes.container}>
       <h1>
         Tela da Conta <br />
-        <span className={classes.api}>{api}</span>
+        <span className={classes.api}>{apiUrl}</span>
       </h1>
       <div className={classes.container_grid}>
         <button
