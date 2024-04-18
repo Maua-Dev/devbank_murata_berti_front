@@ -1,36 +1,24 @@
 import Lottie, { LottieRefCurrentProps } from 'lottie-react'
-import { FormEvent, useRef, useState } from 'react'
+import { FormEvent, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { ToastContainer, Flip, toast } from 'react-toastify'
+import { Flip, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 import animationData from '../../assets/pigAnimation.json'
-// import useAuthStore from '../../store.ts'
+import useAuthStore from '../../store'
 import classes from './HomeScreen.module.css'
 
 function Homescreen() {
-  const [api, setApi] = useState<string>('')
   const pigAnimation = useRef<LottieRefCurrentProps>(null)
-  // const { apiUrl, setApiUrl, authApi } = useAuthStore()
+  const { setApiUrl, authApi } = useAuthStore()
 
   const navigate = useNavigate()
 
-  const submitHandler = async (e: FormEvent) => {
+  const submitHandler = (e: FormEvent) => {
     e.preventDefault()
-    // const isValid: boolean = await authApi()
-    // useAuthStore.setState({ isValidApi: isValid })
-    // if (authApi()) navigate('/')
-    // else {
-    //   toast.error('URL inválida, tente novamente')
-    // }
-
-    const regex = /^(http|https):\/\/[^ "]+$/
-    if (!regex.test(api)) {
-      toast.error('URL inválida, tente novamente')
-      return
+    if (authApi()) {
+      navigate('/')
     }
-    localStorage.setItem('apiUrl', api)
-    navigate('/')
   }
 
   return (
@@ -43,7 +31,7 @@ function Homescreen() {
           <div className={classes.form}>
             <input
               type="text"
-              onChange={(e) => setApi(e.target.value)}
+              onChange={(e) => setApiUrl(e.target.value)}
               placeholder="Insira o URL da sua API aqui"
             />
           </div>
