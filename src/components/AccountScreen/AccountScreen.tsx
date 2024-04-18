@@ -31,6 +31,7 @@ function AccountScreen() {
         <button
           type="button"
           id="withdraw"
+          onClick={() => navigate('/withdraw')}
           className={`${classes.card} ${classes.withdraw}`}
         >
           Sacar
@@ -38,6 +39,7 @@ function AccountScreen() {
         <button
           type="button"
           id="deposit"
+          onClick={() => navigate('/deposit')}
           className={`${classes.card} ${classes.deposit}`}
         >
           Depositar
