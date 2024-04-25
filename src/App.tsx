@@ -1,20 +1,37 @@
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
-import Accountscreen from './components/AccountScreen/AccountScreen'
-import Homescreen from './components/HomeScreen/Homescreen'
-import Depositscreen from './components/DepositScreen/DepositScreen'
+import { Flip, ToastContainer } from 'react-toastify'
 import './App.css'
-import Withdrawal from './components/WithdrawalScreen/WithdrawalScreen'
+import Accountscreen from './components/AccountScreen/AccountScreen'
+import Depositscreen from './components/DepositScreen/DepositScreen'
+import Homescreen from './components/HomeScreen/Homescreen'
+import Withdraw from './components/WithdrawScreen/WithdrawScreen'
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/home" element={<Homescreen />} />
-        <Route path="/account" element={<Accountscreen />} />
-        <Route path="/withdrawal" element={<Withdrawal />} />
-        <Route path="/deposit" element={<Depositscreen />} />
-      </Routes>
-    </Router>
+    <>
+      <Router>
+        <Routes>
+          <Route path="/home" element={<Homescreen />} />
+          <Route path="/" element={<Accountscreen />} />
+          <Route path="/withdraw" element={<Withdraw />} />
+          <Route path="/deposit" element={<Depositscreen />} />
+        </Routes>{' '}
+      </Router>
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        limit={3}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        transition={Flip}
+        draggable={false}
+        pauseOnHover={false}
+        theme="colored"
+      />
+    </>
   )
 }
 

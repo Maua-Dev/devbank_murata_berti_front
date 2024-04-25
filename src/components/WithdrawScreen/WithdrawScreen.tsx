@@ -1,13 +1,13 @@
 import { useNavigate } from 'react-router-dom'
-import classes from './DepositScreen.module.css'
+import classes from './WithdrawScreen.module.css'
 
-export default function Desposit() {
+export default function Withdrawal() {
   const navigate = useNavigate()
 
   return (
     <main className={classes.container}>
       <section>
-        <h1 className={classes.title}>Tela de Depósito</h1>
+        <h1 className={classes.title}>Tela de Saque</h1>
         <div className={`${classes.square} ${classes.marginBottom40}`}>
           <div className={classes.info}>
             <p className={classes.amount}>R$0,00</p>
@@ -19,7 +19,7 @@ export default function Desposit() {
             type="submit"
             onClick={() => navigate('/')}
           >
-            Depositar
+            Sacar
           </button>
           <button
             className={`${classes.button} ${classes.button3}`}
