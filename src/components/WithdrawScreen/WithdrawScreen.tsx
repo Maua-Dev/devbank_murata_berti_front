@@ -1,9 +1,9 @@
 import { useNavigate } from 'react-router-dom'
-import classes from './WithdrawalScreen.module.css'
+import classes from './WithdrawScreen.module.css'
 
 export default function Withdrawal() {
   const navigate = useNavigate()
-  
+
   return (
     <main className={classes.container}>
       <section>

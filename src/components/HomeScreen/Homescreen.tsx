@@ -1,7 +1,6 @@
 import Lottie, { LottieRefCurrentProps } from 'lottie-react'
 import { FormEvent, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Flip, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 import animationData from '../../assets/pigAnimation.json'
@@ -44,20 +43,6 @@ function Homescreen() {
         animationData={animationData}
         loop
         style={{ width: 500, height: 500 }} // Increase the width and height values
-      />
-      <ToastContainer
-        position="top-right"
-        autoClose={2000}
-        limit={3}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        transition={Flip}
-        draggable={false}
-        pauseOnHover={false}
-        theme="colored"
       />
     </div>
   )
