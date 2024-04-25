@@ -24,6 +24,7 @@ function AccountScreen() {
         <button
           type="button"
           id="transactions"
+          onClick={() => navigate('/history')}
           className={`${classes.card} ${classes.transactions}`}
         >
           Transações

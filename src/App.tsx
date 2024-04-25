@@ -1,10 +1,11 @@
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import { Flip, ToastContainer } from 'react-toastify'
 import './App.css'
-import Accountscreen from './components/AccountScreen/AccountScreen'
-import Depositscreen from './components/DepositScreen/DepositScreen'
-import Homescreen from './components/HomeScreen/Homescreen'
-import Withdraw from './components/WithdrawScreen/WithdrawScreen'
+import Accountscreen from './screens/AccountScreen/AccountScreen'
+import Depositscreen from './screens/DepositScreen/DepositScreen'
+import Homescreen from './screens/HomeScreen/HomeScreen'
+import TransactionScreen from './screens/TransactionScreen/TransactionScreen'
+import Withdraw from './screens/WithdrawScreen/WithdrawScreen'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" element={<Accountscreen />} />
           <Route path="/withdraw" element={<Withdraw />} />
           <Route path="/deposit" element={<Depositscreen />} />
+          <Route path="/history" element={<TransactionScreen />} />
         </Routes>{' '}
       </Router>
       <ToastContainer
