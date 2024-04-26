@@ -1,4 +1,5 @@
 import Transaction from '../../components/Transaction'
+import classes from './TransactionScreen.module.css'
 
 export type transaction = {
   type: string
@@ -37,12 +38,14 @@ const TransactionScreen = () => {
   ]
   return (
     <>
-      <h3>Expense History</h3>
-      <ul className="list">
-        {transactions.map((transaction, index) => (
-          <Transaction key={index} {...transaction} />
-        ))}
-      </ul>
+      <div className={classes.container}>
+        <span>History</span>
+        <ul className={classes.list}>
+          {transactions.map((transaction, index) => (
+            <Transaction key={index} {...transaction} />
+          ))}
+        </ul>
+      </div>
     </>
   )
 }

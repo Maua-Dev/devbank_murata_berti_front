@@ -1,0 +1,24 @@
+.transaction {
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10vh;
+  position: relative;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 10px;
+  height: 15vh;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+li.plus {
+  background-color: rgb(122, 199, 12);
+  box-shadow: rgba(122, 199, 12, 0.5) 0px 0px 10px 0px;
+}
+
+li.minus {
+  background-color: rgb(252, 72, 72);
+  box-shadow: rgba(252, 72, 72, 0.5) 0px 0px 10px 0px;
+}

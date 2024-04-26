@@ -1,16 +1,20 @@
+import { useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import classes from './DepositScreen.module.css'
 
 export default function Desposit() {
   const navigate = useNavigate()
+  const sum = useRef(0)
 
   return (
     <main className={classes.container}>
       <section>
-        <h1 className={classes.title}>Tela de Depósito</h1>
+        <h1 className={classes.title}>
+          <span>Depósito</span>
+        </h1>
         <div className={`${classes.square} ${classes.marginBottom40}`}>
           <div className={classes.info}>
-            <p className={classes.amount}>R$0,00</p>
+            <p className={classes.amount}>R${sum.current}</p>
           </div>
         </div>
         <div className={classes.buttoncontainer1}>
@@ -33,6 +37,9 @@ export default function Desposit() {
         <button
           className={`${classes.button} ${classes.button1p}`}
           type="submit"
+          onClick={() => {
+            sum.current += 2
+          }}
         >
           R$2,00
         </button>

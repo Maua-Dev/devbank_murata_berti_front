@@ -1,12 +1,18 @@
+import cn from 'classnames'
 import { transaction } from '../screens/TransactionScreen/TransactionScreen'
+import classes from './Transaction.module.css'
 
 const Transaction = ({ type, value }: transaction) => {
-  const border = value < 0 ? 'minus' : 'plus'
-
   return (
-    <li className={border}>
+    <li
+      className={cn({
+        [classes.transaction]: true,
+        [classes.plus]: type === 'deposit',
+        [classes.minus]: type === 'withdraw'
+      })}
+    >
       {type}
-      <span>${value}</span>
+      <h2>${value}</h2>
     </li>
   )
 }
