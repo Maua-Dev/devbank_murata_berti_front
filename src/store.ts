@@ -1,32 +1,37 @@
 import { toast } from 'react-toastify'
-import { create } from 'zustand'
+import { StateCreator, create } from 'zustand'
 import { persist } from 'zustand/middleware'
 
-interface AuthStore {
+interface AuthSlice {
   apiUrl: string
   // eslint-disable-next-line no-unused-vars
   setApiUrl: (url: string) => void
   authApi: () => boolean
 }
 
-const useAuthStore = create<AuthStore>()(
+const createAuthSlice: StateCreator<AuthSlice, [], [], AuthSlice> = (
+  set,
+  get
+) => ({
+  apiUrl: '',
+  setApiUrl: (url) => set({ apiUrl: url }),
+  authApi: () => {
+    const currentUrl = get().apiUrl
+    const regEx = /^(http|https):\/\/[^ "]+$/
+    if (!regEx.test(currentUrl)) {
+      toast.error('URL inválida, tente novamente')
+      return false
+    } else return true
+  }
+})
+
+const useBoundStore = create<AuthSlice>()(
   persist(
-    (set) => ({
-      apiUrl: '',
-      setApiUrl: (url) => set({ apiUrl: url }),
-      authApi: () => {
-        const { apiUrl } = useAuthStore.getState()
-        const regEx = /^(http|https):\/\/[^ "]+$/
-        if (!regEx.test(apiUrl)) {
-          toast.error('URL inválida, tente novamente')
-          return false
-        } else return true
-      }
+    (...a) => ({
+      ...createAuthSlice(...a)
     }),
-    {
-      name: 'auth store'
-    }
+    { name: 'bound-store' }
   )
 )
 
-export default useAuthStore
+export default useBoundStore

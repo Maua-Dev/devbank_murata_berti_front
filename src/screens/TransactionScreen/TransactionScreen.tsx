@@ -1,7 +1,7 @@
 import Transaction from '../../components/Transaction'
 import classes from './TransactionScreen.module.css'
 
-export type transaction = {
+export interface Transaction {
   type: string
   value: number
   current_balance: number
@@ -10,7 +10,7 @@ export type transaction = {
 
 const TransactionScreen = () => {
   // Dummy transactions
-  const transactions: transaction[] = [
+  const dummy_transactions: Transaction[] = [
     {
       type: 'deposit',
       value: 100.0,
@@ -41,7 +41,7 @@ const TransactionScreen = () => {
       <div className={classes.container}>
         <span>History</span>
         <ul className={classes.list}>
-          {transactions.map((transaction, index) => (
+          {dummy_transactions.map((transaction, index) => (
             <Transaction key={index} {...transaction} />
           ))}
         </ul>

@@ -7,10 +7,24 @@ function AccountScreen() {
   const navigate = useNavigate()
   const { apiUrl } = useAuthStore()
 
+  const BASE_URL = apiUrl
+
   useEffect(() => {
     const regex = /^(http|https):\/\/[^ "]+$/
     if (!apiUrl || !regex.test(apiUrl)) {
       navigate('/home')
+    }
+
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`${BASE_URL}`)
+        if (response.status === 401) {
+          navigate('/login')
+        }
+        const transactions = await response.json()
+      } catch (error) {
+        navigate('/home')
+      }
     }
   }, [apiUrl, navigate])
 
