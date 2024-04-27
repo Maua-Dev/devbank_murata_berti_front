@@ -1,16 +1,20 @@
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import classes from './WithdrawScreen.module.css'
+import classes from './DepositScreen.module.css'
 
-export default function Withdrawal() {
+export default function Deposit() {
   const navigate = useNavigate()
+  const [sum, setSum] = useState(0)
 
   return (
     <main className={classes.container}>
       <section>
-        <h1 className={classes.title}>Tela de Saque</h1>
+        <h1 className={classes.title}>
+          <span>Depósito</span>
+        </h1>
         <div className={`${classes.square} ${classes.marginBottom40}`}>
           <div className={classes.info}>
-            <p className={classes.amount}>R$0,00</p>
+            <p className={classes.amount}>R${sum}</p>
           </div>
         </div>
         <div className={classes.buttoncontainer1}>
@@ -19,11 +23,14 @@ export default function Withdrawal() {
             type="submit"
             onClick={() => navigate('/')}
           >
-            Sacar
+            Depositar
           </button>
           <button
             className={`${classes.button} ${classes.button3}`}
             type="submit"
+            onClick={() => {
+              setSum(0)
+            }}
           >
             Limpar
           </button>
@@ -33,42 +40,63 @@ export default function Withdrawal() {
         <button
           className={`${classes.button} ${classes.button1p}`}
           type="submit"
+          onClick={() => {
+            setSum(sum + 2.0)
+          }}
         >
           R$2,00
         </button>
         <button
           className={`${classes.button} ${classes.button1p}`}
           type="submit"
+          onClick={() => {
+            setSum(sum + 5.0)
+          }}
         >
           R$5,00
         </button>
         <button
           className={`${classes.button} ${classes.button1p}`}
           type="submit"
+          onClick={() => {
+            setSum(sum + 10.0)
+          }}
         >
           R$10,00
         </button>
         <button
           className={`${classes.button} ${classes.button1q}`}
           type="submit"
+          onClick={() => {
+            setSum(sum + 20.0)
+          }}
         >
           R$20,00
         </button>
         <button
           className={`${classes.button} ${classes.button1q}`}
           type="submit"
+          onClick={() => {
+            setSum(sum + 50.0)
+          }}
         >
           R$50,00
         </button>
         <button
           className={`${classes.button} ${classes.button1q}`}
           type="submit"
+          onClick={() => {
+            setSum(sum + 100.0)
+          }}
         >
           R$100,00
         </button>
         <button
           className={`${classes.button} ${classes.button1t}`}
           type="submit"
+          onClick={() => {
+            setSum(sum + 200.0)
+          }}
         >
           R$200,00
         </button>

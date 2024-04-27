@@ -1,5 +1,5 @@
 .container {
-  background: var(--color-secondary);
+  background: var(--color-primary);
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -58,8 +58,9 @@
 }
 
 .button {
-  font-size: 1rem;
+  font-size: 2rem;
   width: 500px;
+  height: 10vh;
   padding: 8px 24px;
   border: none;
   border-radius: 12px;
@@ -74,18 +75,18 @@
 }
 
 .button3 {
-  width: 200px;
-  background-color: var(--color-primary);
+  width: 300px;
+  background-color: var(--color-secondary);
   color: white;
 }
 
 .button1p {
-  background-color: var(--color-primary);
+  background-color: var(--color-quaternary);
   color: white;
 }
 
 .button1q {
-  background-color: var(--color-quaternary);
+  background-color: var(--color-secondary);
   color: white;
 }
 
