@@ -9,7 +9,9 @@ export default function Withdrawal() {
   return (
     <main className={classes.container}>
       <section>
-        <h1 className={classes.title}>Tela de Saque</h1>
+      <h1 className={classes.title}>
+          <span>Sacar</span>
+        </h1>
         <div className={`${classes.square} ${classes.marginBottom40}`}>
           <div className={classes.info}>
             <p className={classes.amount}>R${sum}</p>
