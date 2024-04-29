@@ -7,9 +7,7 @@ export default defineConfig({
   build: {
     manifest: true,
     rollupOptions: {
-      external: [
-        "./iac"
-      ],
+      external: new RegExp('/iac/.*')
     },
   },
   css: {
