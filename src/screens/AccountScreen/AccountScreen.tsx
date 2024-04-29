@@ -26,16 +26,18 @@ function AccountScreen() {
 
   return (
     <div className={classes.container}>
-      <div>
-        <h3>Nome: {profile.data?.name}</h3>
-        <h3>Agência: {profile.data?.agency}</h3>
-        <h3>Saldo: {profile.data?.current_balance}</h3>
-        <h3>Conta: {profile.data?.account}</h3>
+      <div className={classes.container_left}>
+        <div className={classes.profile}>
+          <h3>Nome: {profile.data?.name}</h3>
+          <h3>Agência: {profile.data?.agency}</h3>
+          <h3>Saldo: {profile.data?.current_balance}</h3>
+          <h3>Conta: {profile.data?.account}</h3>
+        </div>
+        <h1>
+          Tela da Conta <br />
+          <span className={classes.api}>{apiUrl}</span>
+        </h1>
       </div>
-      <h1>
-        Tela da Conta <br />
-        <span className={classes.api}>{apiUrl}</span>
-      </h1>
       <div className={classes.container_grid}>
         <button
           type="button"

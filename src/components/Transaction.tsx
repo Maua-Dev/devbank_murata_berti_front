@@ -1,8 +1,8 @@
 import cn from 'classnames'
-import { transaction } from '../screens/TransactionScreen/TransactionScreen'
+import { Transaction } from '../types/transaction'
 import classes from './Transaction.module.css'
 
-const Transaction = ({ type, value }: transaction) => {
+const TransactionComponent = ({ type, value }: Transaction) => {
   return (
     <li
       className={cn({
@@ -16,4 +16,4 @@ const Transaction = ({ type, value }: transaction) => {
     </li>
   )
 }
-export default Transaction
+export default TransactionComponent
