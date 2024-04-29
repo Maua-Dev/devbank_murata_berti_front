@@ -14,3 +14,11 @@ export const getProfile = async () => {
 export const getTransactions = async () => {
   return (await axiosInstance.get<AllTransactions>('/history')).data
 }
+
+export const createWithdraw = async (data: Banknote) => {
+  return await axiosInstance.post('/withdraw', data)
+}
+
+export const createDeposit = async (data: Banknote) => {
+  return await axiosInstance.post('/deposit', data)
+}

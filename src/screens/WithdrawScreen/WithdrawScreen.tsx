@@ -1,10 +1,28 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useCreateWithdraw } from '../../services/mutations'
 import classes from './WithdrawScreen.module.css'
 
 export default function Withdrawal() {
   const navigate = useNavigate()
   const [sum, setSum] = useState(0)
+  const [banknotes, setBanknotes] = useState({
+    2: 0,
+    5: 0,
+    10: 0,
+    20: 0,
+    50: 0,
+    100: 0,
+    200: 0
+  })
+
+  const createWithdrawMutation = useCreateWithdraw()
+
+  const handleBanknotes = (note: keyof typeof banknotes) => {
+    setBanknotes({ ...banknotes, [note]: banknotes[note] + 1 })
+  }
+
+  const handleCreateTransaction = () => createWithdrawMutation.mutate(banknotes)
 
   return (
     <main className={classes.container}>
@@ -19,7 +37,9 @@ export default function Withdrawal() {
           <button
             className={`${classes.button} ${classes.button2}`}
             type="submit"
-            onClick={() => navigate('/')}
+            onClick={() => {
+              handleCreateTransaction()
+            }}
           >
             Sacar
           </button>
@@ -38,8 +58,9 @@ export default function Withdrawal() {
         <button
           className={`${classes.button} ${classes.button1p}`}
           type="submit"
-          onClick={() => {
+          onClick={(e) => {
             setSum(sum + 2.0)
+            handleBanknotes(2)
           }}
         >
           R$2,00
@@ -49,6 +70,7 @@ export default function Withdrawal() {
           type="submit"
           onClick={() => {
             setSum(sum + 5.0)
+            handleBanknotes(5)
           }}
         >
           R$5,00
@@ -58,6 +80,7 @@ export default function Withdrawal() {
           type="submit"
           onClick={() => {
             setSum(sum + 10.0)
+            handleBanknotes(10)
           }}
         >
           R$10,00
@@ -67,6 +90,7 @@ export default function Withdrawal() {
           type="submit"
           onClick={() => {
             setSum(sum + 20.0)
+            handleBanknotes(20)
           }}
         >
           R$20,00
@@ -76,6 +100,7 @@ export default function Withdrawal() {
           type="submit"
           onClick={() => {
             setSum(sum + 50.0)
+            handleBanknotes(50)
           }}
         >
           R$50,00
@@ -85,6 +110,7 @@ export default function Withdrawal() {
           type="submit"
           onClick={() => {
             setSum(sum + 100.0)
+            handleBanknotes(100)
           }}
         >
           R$100,00
@@ -94,6 +120,7 @@ export default function Withdrawal() {
           type="submit"
           onClick={() => {
             setSum(sum + 200.0)
+            handleBanknotes(200)
           }}
         >
           R$200,00
