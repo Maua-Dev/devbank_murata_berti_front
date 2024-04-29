@@ -1,11 +1,13 @@
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import useAuthStore from '../../store'
+import { useProfile } from '../../services/queries'
+import useBoundStore from '../../store'
 import classes from './AccountScreen.module.css'
 
 function AccountScreen() {
   const navigate = useNavigate()
-  const { apiUrl } = useAuthStore()
+  const { apiUrl } = useBoundStore()
+  const profile = useProfile()
 
   useEffect(() => {
     const regex = /^(http|https):\/\/[^ "]+$/
@@ -14,12 +16,28 @@ function AccountScreen() {
     }
   }, [apiUrl, navigate])
 
+  if (profile.isLoading) {
+    return <div>Loading...</div>
+  }
+
+  if (profile.isError) {
+    return <div>Error: {profile.error.message}</div>
+  }
+
   return (
     <div className={classes.container}>
-      <h1>
-        Tela da Conta <br />
-        <span className={classes.api}>{apiUrl}</span>
-      </h1>
+      <div className={classes.container_left}>
+        <div className={classes.profile}>
+          <h3>Nome: {profile.data?.name}</h3>
+          <h3>Agência: {profile.data?.agency}</h3>
+          <h3>Saldo: {profile.data?.current_balance}</h3>
+          <h3>Conta: {profile.data?.account}</h3>
+        </div>
+        <h1>
+          Tela da Conta <br />
+          <span className={classes.api}>{apiUrl}</span>
+        </h1>
+      </div>
       <div className={classes.container_grid}>
         <button
           type="button"

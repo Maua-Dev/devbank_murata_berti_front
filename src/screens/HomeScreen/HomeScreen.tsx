@@ -4,12 +4,12 @@ import { useNavigate } from 'react-router-dom'
 import 'react-toastify/dist/ReactToastify.css'
 
 import animationData from '../../assets/pigAnimation.json'
-import useAuthStore from '../../store'
+import useBoundStore from '../../store'
 import classes from './HomeScreen.module.css'
 
 function Homescreen() {
   const pigAnimation = useRef<LottieRefCurrentProps>(null)
-  const { setApiUrl, authApi } = useAuthStore()
+  const { setApiUrl, authApi } = useBoundStore()
 
   const navigate = useNavigate()
 
