@@ -1,10 +1,8 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import { useCreateDeposit } from '../../services/mutations'
 import classes from './DepositScreen.module.css'
 
 export default function Deposit() {
-  const navigate = useNavigate()
   const [sum, setSum] = useState(0)
   const [banknotes, setBanknotes] = useState({
     2: 0,

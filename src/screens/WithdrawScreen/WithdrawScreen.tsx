@@ -1,10 +1,8 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import { useCreateWithdraw } from '../../services/mutations'
 import classes from './WithdrawScreen.module.css'
 
 export default function Withdrawal() {
-  const navigate = useNavigate()
   const [sum, setSum] = useState(0)
   const [banknotes, setBanknotes] = useState({
     2: 0,
@@ -60,7 +58,7 @@ export default function Withdrawal() {
         <button
           className={`${classes.button} ${classes.button1p}`}
           type="submit"
-          onClick={(e) => {
+          onClick={() => {
             setSum(sum + 2.0)
             handleBanknotes(2)
           }}
